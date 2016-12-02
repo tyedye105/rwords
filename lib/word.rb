@@ -26,4 +26,8 @@ class Word
       @@word_entries
     end
 
+    define_method(:save)do
+      @@word_entries.push(self)
+    end
+
 end

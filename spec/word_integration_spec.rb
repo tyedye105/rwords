@@ -24,4 +24,12 @@ describe(Word) do
     end
   end
 
+  describe("#save") do
+    it("it will save a word, into the Word class")do
+      test_word = Word.new("rock")
+      test_word.save()
+      expect(Word.all()).to(eq([test_word]))
+    end
+  end
+
 end
