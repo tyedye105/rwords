@@ -1,5 +1,6 @@
 require('rspec')
 require('word')
+# require('definition')
 
 describe(Word) do
   before() do
@@ -45,11 +46,13 @@ describe(Word) do
   end
 
   describe("#id")do
-    it("return the id number asscoiate with the word.")do
+    it("return the id number asscoiate with the word.") do
     test_word = Word.new("rocking")
     test_word.save()
     expect(test_word.id()).to(eq(1))
     end
   end
+
+
 
 end
