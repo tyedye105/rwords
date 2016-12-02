@@ -14,4 +14,8 @@ class Definition
     @@def_entries
   end
 
+  define_method(:save) do
+    @@def_entries.push(self)
+  end
+
 end
