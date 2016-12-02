@@ -69,9 +69,7 @@ describe(Word) do
       new_def = Definition.new("a container often made out of cardboard")
       test_word.add_definition(new_def)
       expect(test_word.definitions()).to(eq([new_def]))
-
     end
   end
-
 
 end
