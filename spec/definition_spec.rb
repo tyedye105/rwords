@@ -23,7 +23,14 @@ describe(Definition) do
     it('save a definition into the storage array') do
       @test_def.save()
       expect(Definition.all()).to(eq([@test_def]))
+    end
+  end
 
+  describe('.clear') do
+    it('clear out the storage array')do
+    @test_def.save()
+    Definition.clear()
+    expect(Definition.clear()).to(eq([]))
     end
   end
 

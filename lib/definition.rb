@@ -18,4 +18,8 @@ class Definition
     @@def_entries.push(self)
   end
 
+  define_singleton_method(:clear) do
+    @@def_entries = []
+    end
+
 end
