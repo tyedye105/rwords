@@ -1,5 +1,6 @@
 class Word
-    @@word_entries = []
+  @@word_entries = []
+
   define_method(:initialize) do |word_entry|
     @word_entry = word_entry
     @id = @@word_entries.length() + 1
@@ -37,6 +38,16 @@ class Word
 
     define_singleton_method(:clear) do
       @@word_entries = []
+    end
+
+    define_singleton_method(:find) do |word_id|
+      found_word = nil
+      @@word_entries.each() do |entry|
+        if entry.id() == word_id
+          found_word = entry
+        end
+      end
+      found_word
     end
 
 end
