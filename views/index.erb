@@ -5,7 +5,7 @@
 <h3>Here is what is currently stored in this dictionary</h3>
 <ul>
     <%@words.each() do |word| %>
-    <li><a href='/words/<%= word.id() %>'><%= word.word_entry() %></a></li>
+    <li><a href='/words/view/<%= word.id() %>'><%= word.word_entry() %></a></li>
     <% end %>
 </ul>
 <h5>if there are no words click the link below to add a new word!</h5>

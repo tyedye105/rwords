@@ -4,6 +4,7 @@ require('./lib/word')
 require('./lib/definition')
 also_reload('lib/**/*.rb')
 
+
 get('/') do
   @words = Word.all()
   erb(:index)
@@ -15,11 +16,21 @@ end
 
 post('/success') do
   word_entry = params.fetch("word_entry")
-  Word.new(word_entry).save()
+  word_check = Word.new(word_entry)
+    if word_check.is_word?() == false
+      redirect('/add_word')
+    elsif word_check.word_entry == ""
+      redirect('/add_word')
+    else
+      word_check.save()
+    end
   @words = Word.all()
   erb(:index)
 end
 
-get('/words/:id') do
+get('/words/view/:id') do
+  @words = Word.find(params.fetch('id').to_i)
+  @definitions = Definition.all()
+  erb(:word_view)
 
 end
