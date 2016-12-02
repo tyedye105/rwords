@@ -55,11 +55,21 @@ describe(Word) do
 
   describe(".find") do
     it('will find the word by finding the associated id') do
-      test_word = Word.new("wand")
+      test_word = Word.new("rock'n")
       test_word.save()
       test_word2 = Word.new("laser")
-      test_word2.save
+      test_word2.save()
       expect(Word.find(test_word.id())).to(eq(test_word))
+    end
+  end
+
+  describe("#add_definition") do
+    it('will add a definitoin to the asccoiated word.') do
+      test_word = Word.new("box")
+      new_def = Definition.new("a container often made out of cardboard")
+      test_word.add_definition(new_def)
+      expect(test_word.definitions()).to(eq([new_def]))
+
     end
   end
 
