@@ -34,4 +34,19 @@ describe(Definition) do
     end
   end
 
+  describe('#id') do
+    it('return the id asscoiated with a definition') do
+      expect(@test_def.id()).to(eq(1))
+    end
+  end
+
+  describe(".find") do
+    it('will find the definition by finding the associated id') do
+      @test_def.save()
+      test_def2 = Definition.new("harmful beams of concentrated energy")
+      test_def2.save()
+      expect(Definition.find(@test_def.id())).to(eq(@test_def))
+    end
+  end
+
 end
