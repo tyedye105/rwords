@@ -1,12 +1,19 @@
 <div class="jumbotron">
-  <h1>The definitions of <%= @words.word_entry() %>!</h1>
+  <h1>The definitions of <%= @word.word_entry() %>!</h1>
 </div>
-<h3>If there are no definitions availble add them below!</h3>
+<h3>If there are no definitions availble, add as many as you need to.</h3>
 <ol>
+  <%@word.definitions.each() do |definition| %>
+  <li><%= definition.define() %></li>
+  <% end %>
+
 </ol>
 <form  action="/words/view/:id/defined" method="post">
-  
+  <input id="word_id" type="hidden" name="word_id" value="<%= @word.id() %>">
 
+    <label for="definiton">Enter in your defintion.</label>
+    <input type="text" name="definition">
+<button type="submit"> add definition</button>
 </form>
 <br>
 <a href="/">home</a>

@@ -29,8 +29,17 @@ post('/success') do
 end
 
 get('/words/view/:id') do
-  @words = Word.find(params.fetch('id').to_i)
+  @word = Word.find(params.fetch('id').to_i())
   @definitions = Definition.all()
   erb(:word_view)
+end
 
+post('/words/view/:id/defined') do
+  definition = params.fetch("definition")
+  @new_def = Definition.new(definition)
+  @new_def.save()
+  @word = Word.find(params.fetch('word_id').to_i())
+  @word.add_definition(@new_def)
+  @definitions = Definition.all()
+  erb(:word_view)
 end

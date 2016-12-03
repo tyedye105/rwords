@@ -35,7 +35,7 @@ set(:show_exceptions, false)
     it ("page will redirect back to the current page") do
       visit('/')
       click_link("add a word")
-      fill_in('word_entry', :with => '')
+      fill_in('word_entry', :with => '``')
       click_button('add it!')
       expect(page).to have_content("")
     end
