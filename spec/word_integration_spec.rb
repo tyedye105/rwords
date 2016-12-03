@@ -51,3 +51,31 @@ set(:show_exceptions, false)
       expect(page).to have_content('boxer')
     end
 end
+
+    describe("path to add a definition to selected word", {:type => :feature}) do
+      it ("let the user view the definitons of the word they clicked on") do
+        visit('/')
+        click_link("add a word")
+        fill_in('word_entry', :with => 'fox')
+        click_button('add it!')
+        click_link("fox")
+        fill_in('definition', :with => "an animal")
+        click_button('add definition')
+        expect(page).to have_content("an animal")
+      end
+    end
+
+    describe("path to everthing", {:type => :feature}) do
+      it ("let the user view the all words and thier corresponding definitons at once") do
+        visit('/')
+        click_link("add a word")
+        fill_in('word_entry', :with => 'worlf')
+        click_button('add it!')
+        click_link("fox")
+        fill_in('definition', :with => "an animal with four legs")
+        click_button('add definition')
+        click_link('home')
+        click_link('Everything?')
+        expect(page).to have_content("an animal with four legs")
+      end
+    end

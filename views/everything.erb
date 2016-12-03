@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h1> This is everything <h1>
+</div>
+<ul>
+    <% @words.each() do |word| %>
+      <% word.definitions.each() do |definition| %>
+        <li><%= word.word_entry()%>: <%= definition.define() %></li>
+    <% end %>
+    <% end %>
+</ul>
+<h3> It's not pretty, but thats everything!</h3>
+<br>
+<a href="/">home</a>

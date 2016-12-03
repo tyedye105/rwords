@@ -4,7 +4,6 @@ require('./lib/word')
 require('./lib/definition')
 also_reload('lib/**/*.rb')
 
-
 get('/') do
   @words = Word.all()
   erb(:index)
@@ -42,4 +41,10 @@ post('/words/view/:id/defined') do
   @word.add_definition(@new_def)
   @definitions = Definition.all()
   erb(:word_view)
+end
+
+get('/words/views/everything') do
+  @words = Word.all()
+
+  erb(:everything)
 end
